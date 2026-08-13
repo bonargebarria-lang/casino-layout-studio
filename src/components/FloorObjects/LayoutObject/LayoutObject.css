@@ -49,3 +49,13 @@
     font-size:13px;
 
 }
+.layout-object.selected{
+
+    border:3px solid #00A3FF;
+
+    box-shadow:
+        0 0 0 3px rgba(0,163,255,.25),
+        0 12px 25px rgba(0,0,0,.35);
+}
+
+

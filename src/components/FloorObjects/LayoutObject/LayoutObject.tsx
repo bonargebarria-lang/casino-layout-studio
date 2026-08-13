@@ -5,6 +5,7 @@ interface LayoutObjectProps {
   subtitle?: string;
   x?: number;
   y?: number;
+  selected?: boolean;
 }
 
 export default function LayoutObject({
@@ -12,10 +13,12 @@ export default function LayoutObject({
   subtitle,
   x = 100,
   y = 100,
-}: LayoutObjectProps) {
+   selected = false,
+}: LayoutObjectProps) 
+{
   return (
     <div
-      className="layout-object"
+      className={`layout-object ${selected ? "selected" : ""}`}
       style={{
         left: x,
         top: y,
