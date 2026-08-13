@@ -1,0 +1,77 @@
+.header{
+
+    height:70px;
+
+    background:#1E293B;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 25px;
+
+    border-bottom:1px solid #334155;
+
+    font-family:Segoe UI, sans-serif;
+
+}
+
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.logo{
+
+    font-size:34px;
+
+}
+
+.header-left h1{
+
+    margin:0;
+
+    font-size:28px;
+
+    font-weight:600;
+
+}
+
+.header-left span{
+
+    color:#38BDF8;
+
+    font-size:14px;
+
+}
+
+.header-right{
+
+    text-align:right;
+
+}
+
+.casino-name{
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+.user-name{
+
+    color:#CBD5E1;
+
+    font-size:14px;
+
+}

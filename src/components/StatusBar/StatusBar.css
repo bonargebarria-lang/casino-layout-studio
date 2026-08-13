@@ -1,0 +1,12 @@
+.status{
+    height:30px;
+    background:#1f2937;
+    color:white;
+
+    display:flex;
+    align-items:center;
+
+    padding-left:20px;
+
+    border-top:1px solid #374151;
+}

@@ -1,0 +1,33 @@
+.menubar{
+
+    height:40px;
+
+    background:#243043;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    padding-left:20px;
+
+    gap:25px;
+
+    border-bottom:1px solid #38475d;
+
+}
+
+.menubar span{
+
+    cursor:pointer;
+
+    font-size:14px;
+
+}
+
+.menubar span:hover{
+
+    color:#4DA3FF;
+
+}
