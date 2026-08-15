@@ -5,12 +5,14 @@ interface Props {
     machine: Machine;
     selected?: boolean;
     onClick?: () => void;
+    onMouseDown?: () => void;
 }
 
 export default function EGMCard({
     machine,
     selected = false,
     onClick,
+    onMouseDown,
 }: Props) {
 
     return (
@@ -28,6 +30,7 @@ export default function EGMCard({
             selected={selected}
 
             onClick={onClick}
+            onMouseDown={onMouseDown}
 
         />
 

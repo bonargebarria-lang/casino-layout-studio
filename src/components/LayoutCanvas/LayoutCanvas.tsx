@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { Machine } from "../../models/Machine";
 import "./LayoutCanvas.css";
 import EGMCard from "../FloorObjects/EGMCard/EGMCard";
 import { machines } from "../../services/MachineService";
@@ -6,6 +7,8 @@ import { machines } from "../../services/MachineService";
 export default function LayoutCanvas() {
 
     const [selectedMachine, setSelectedMachine] = useState<string | null>(null);
+    const [layoutMachines, setLayoutMachines] = useState<Machine[]>(machines);
+    const [draggingMachine, setDraggingMachine] = useState<string | null>(null);
 
     return (
 
@@ -17,7 +20,7 @@ export default function LayoutCanvas() {
 
                 <div className="machine-layer">
 
-                    {machines.map((machine) => (
+                    {layoutMachines.map((machine) => (
 
                         <EGMCard
 
@@ -31,6 +34,10 @@ export default function LayoutCanvas() {
                               console.log("Seleccionada:", machine.id);
                               setSelectedMachine(machine.id);
                           }}
+                             onMouseDown={() => {
+                                console.log("Iniciando arrastre:", machine.id);
+                                setDraggingMachine(machine.id);
+                          }} 
 
                         />
 

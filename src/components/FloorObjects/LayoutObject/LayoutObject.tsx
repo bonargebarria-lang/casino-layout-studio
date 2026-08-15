@@ -9,6 +9,7 @@ interface LayoutObjectProps {
   selected?: boolean;
 
   onClick?: () => void;
+  onMouseDown?: () => void;
 }
 
 export default function LayoutObject({
@@ -18,7 +19,9 @@ export default function LayoutObject({
   y = 100,
   selected = false,
   onClick,
-}: LayoutObjectProps) {
+  onMouseDown,
+}: LayoutObjectProps) 
+{
 
   return (
   <div
@@ -28,6 +31,7 @@ export default function LayoutObject({
       top: y,
     }}
     onClick={onClick}
+    onMouseDown={onMouseDown}
   >
     <div className="object-title">
       {title}
