@@ -5,7 +5,10 @@ interface LayoutObjectProps {
   subtitle?: string;
   x?: number;
   y?: number;
+
   selected?: boolean;
+
+  onClick?: () => void;
 }
 
 export default function LayoutObject({
@@ -13,24 +16,28 @@ export default function LayoutObject({
   subtitle,
   x = 100,
   y = 100,
-   selected = false,
-}: LayoutObjectProps) 
-{
-  return (
-    <div
-      className={`layout-object ${selected ? "selected" : ""}`}
-      style={{
-        left: x,
-        top: y,
-      }}
-    >
-      <div className="object-title">{title}</div>
+  selected = false,
+  onClick,
+}: LayoutObjectProps) {
 
-      {subtitle && (
-        <div className="object-subtitle">
-          {subtitle}
-        </div>
-      )}
+  return (
+  <div
+    className={`layout-object ${selected ? "selected" : ""}`}
+    style={{
+      left: x,
+      top: y,
+    }}
+    onClick={onClick}
+  >
+    <div className="object-title">
+      {title}
     </div>
-  );
+
+    {subtitle && (
+      <div className="object-subtitle">
+        {subtitle}
+      </div>
+    )}
+  </div>
+);
 }

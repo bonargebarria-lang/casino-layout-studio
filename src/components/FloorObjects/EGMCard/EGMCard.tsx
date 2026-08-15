@@ -2,12 +2,16 @@ import LayoutObject from "../LayoutObject/LayoutObject";
 import type { Machine } from "../../../models/Machine";
 
 interface Props {
-
     machine: Machine;
-
+    selected?: boolean;
+    onClick?: () => void;
 }
 
-export default function EGMCard({ machine }: Props) {
+export default function EGMCard({
+    machine,
+    selected = false,
+    onClick,
+}: Props) {
 
     return (
 
@@ -20,6 +24,10 @@ export default function EGMCard({ machine }: Props) {
             x={machine.x}
 
             y={machine.y}
+
+            selected={selected}
+
+            onClick={onClick}
 
         />
 
