@@ -1,3 +1,4 @@
+import type { MouseEvent } from "react";
 import "./LayoutObject.css";
 
 interface LayoutObjectProps {
@@ -9,7 +10,7 @@ interface LayoutObjectProps {
   selected?: boolean;
 
   onClick?: () => void;
-  onMouseDown?: () => void;
+  onMouseDown?: (e: MouseEvent<HTMLDivElement>) => void;
 }
 
 export default function LayoutObject({
