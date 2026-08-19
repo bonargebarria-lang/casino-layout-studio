@@ -4,7 +4,12 @@ import "./LayoutCanvas.css";
 import EGMCard from "../FloorObjects/EGMCard/EGMCard";
 import { machines } from "../../services/MachineService";
 
-export default function LayoutCanvas() {
+interface LayoutCanvasProps {
+    floorplanImage?: string | null;
+}
+export default function LayoutCanvas({
+    floorplanImage,
+}: LayoutCanvasProps) {
 
     const [selectedMachine, setSelectedMachine] = useState<string | null>(null);
     const [layoutMachines, setLayoutMachines] = useState<Machine[]>(machines);
@@ -66,7 +71,16 @@ export default function LayoutCanvas() {
 
             }}
         >
-            <div className="canvas-grid">
+                <div className="canvas-grid">
+
+                <div
+                    className="floorplan-layer"
+                    style={{
+                    backgroundImage: floorplanImage
+                    ? `url("${floorplanImage}")`
+                    : "none",
+                     }}
+                ></div>
 
                 <div className="zone-layer"></div>
 

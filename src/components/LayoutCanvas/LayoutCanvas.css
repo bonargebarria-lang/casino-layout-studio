@@ -17,6 +17,23 @@
     background-size:40px 40px;
 }
 
+.floorplan-layer {
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background-repeat: no-repeat;
+
+    background-position: top left;
+
+    background-size: contain;
+
+}
+
 .zone-layer,
 .machine-layer,
 .table-layer,

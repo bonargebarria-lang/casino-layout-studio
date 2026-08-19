@@ -1,0 +1,278 @@
+.bullpen {
+
+    width: 250px;
+    height: 100%;
+
+    flex-shrink: 0;
+
+    background: #182235;
+
+    color: #E2E8F0;
+
+    border-left: 1px solid #334155;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 16px 12px;
+
+    font-family: "Segoe UI", sans-serif;
+
+}
+
+
+/* HEADER */
+
+.bullpen-header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+
+}
+
+.bullpen-title {
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    color: #F8FAFC;
+
+}
+
+.bullpen-subtitle {
+
+    margin-top: 3px;
+
+    font-size: 10px;
+
+    color: #64748B;
+
+}
+
+
+.bullpen-count {
+
+    min-width: 34px;
+    height: 24px;
+
+    padding: 0 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    background: rgba(56, 189, 248, 0.12);
+
+    border: 1px solid rgba(56, 189, 248, 0.25);
+
+    color: #38BDF8;
+
+    font-size: 11px;
+    font-weight: 700;
+
+}
+
+
+/* BUSCADOR */
+
+.bullpen-search {
+
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0 9px;
+
+    background: #0F172A;
+
+    border: 1px solid #334155;
+
+    border-radius: 6px;
+
+    margin-bottom: 18px;
+
+}
+
+.bullpen-search span {
+
+    color: #64748B;
+
+}
+
+.bullpen-search input {
+
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: #E2E8F0;
+
+    font-size: 11px;
+
+}
+
+.bullpen-search input::placeholder {
+
+    color: #64748B;
+
+}
+
+
+/* SECCION */
+
+.bullpen-section-title {
+
+    margin: 0 6px 8px;
+
+    color: #64748B;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* LISTA */
+
+.bullpen-list {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+}
+
+
+/* MAQUINA */
+
+.bullpen-machine {
+
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 8px;
+
+    margin-bottom: 5px;
+
+    box-sizing: border-box;
+
+    border: 1px solid transparent;
+
+    border-radius: 7px;
+
+    cursor: grab;
+
+    transition: 0.18s ease;
+
+}
+
+.bullpen-machine:hover {
+
+    background: #243247;
+
+    border-color: #334155;
+
+}
+
+.bullpen-machine:active {
+
+    cursor: grabbing;
+
+}
+
+.machine-icon {
+
+    width: 28px;
+
+    font-size: 16px;
+
+}
+
+.machine-info {
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.machine-info strong {
+
+    font-size: 11px;
+
+    color: #F8FAFC;
+
+}
+
+.machine-info span {
+
+    margin-top: 2px;
+
+    font-size: 9px;
+
+    color: #94A3B8;
+
+}
+
+.machine-menu {
+
+    color: #64748B;
+
+    font-size: 17px;
+
+}
+
+
+/* FOOTER */
+
+.bullpen-footer {
+
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    border-top: 1px solid #263449;
+
+    color: #64748B;
+
+    font-size: 9px;
+
+}
+
+.bullpen-dot {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #38BDF8;
+
+}

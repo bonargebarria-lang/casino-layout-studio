@@ -1,100 +1,115 @@
-.header{
+.header {
 
-    height:72px;
+    height: 66px;
 
-    background:#0F172A;
+    background: #0F172A;
+    color: white;
 
-    color:white;
+    display: flex;
+    align-items: center;
 
-    display:flex;
+    padding: 0 18px;
 
-    justify-content:space-between;
+    border-bottom: 1px solid #253247;
 
-    align-items:center;
+    font-family: "Segoe UI", sans-serif;
 
-    padding:0 20px;
-
-    border-bottom:1px solid #1E293B;
-
-    font-family:"Segoe UI", sans-serif;
-
-    gap:20px;
-
+    gap: 16px;
 }
 
-.header-left{
 
-    display:flex;
+/* =========================
+   IDENTIDAD
+========================= */
 
-    align-items:center;
+.header-left {
 
-    gap:15px;
+    display: flex;
+    align-items: center;
 
-    min-width:280px;
+    gap: 12px;
 
+    width: 340px;
+    flex-shrink: 0;
 }
 
-.logo{
+.logo {
 
-    font-size:34px;
-
+    font-size: 32px;
 }
 
-.header-left h1{
+.header-left h1 {
 
-    margin:0;
+    margin: 0;
 
-    font-size:24px;
+    font-size: 20px;
+    line-height: 24px;
 
-    font-weight:600;
+    font-weight: 650;
 
-    color:white;
-
+    color: #F8FAFC;
 }
 
-.header-left span{
+.header-left span {
 
-    color:#94A3B8;
+    display: block;
 
-    font-size:13px;
+    margin-top: 4px;
 
+    color: #94A3B8;
+
+    font-size: 12px;
+    white-space: nowrap;
 }
 
-/* Solo organiza las tarjetas */
-.header-center{
 
-    flex:1;
+/* =========================
+   KPI AREA
+========================= */
 
-    display:flex;
+.header-center {
 
-    justify-content:center;
+    flex: 1;
 
-    gap:12px;
+    display: flex;
 
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 0;
+    padding-top: 10px;
 }
 
-.header-right{
 
-    min-width:130px;
+/* =========================
+   RIGHT SIDE
+========================= */
 
-    text-align:right;
+.header-right {
 
+    width: 100px;
+
+    flex-shrink: 0;
+
+    text-align: right;
 }
 
-.casino-name{
+.casino-name {
 
-    color:#38BDF8;
+    color: #38BDF8;
 
-    font-weight:600;
+    font-weight: 600;
 
-    font-size:16px;
-
+    font-size: 14px;
 }
 
-.user-name{
+.user-name {
 
-    color:#94A3B8;
+    margin-top: 3px;
 
-    font-size:12px;
+    color: #64748B;
 
+    font-size: 11px;
 }

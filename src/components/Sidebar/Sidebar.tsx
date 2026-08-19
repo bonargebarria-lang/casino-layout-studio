@@ -5,21 +5,68 @@ export default function Sidebar() {
     <aside className="sidebar">
 
       <div className="sidebar-title">
-        CASINO LAYOUT
+        CASINO INSIGHT
       </div>
+
+
+      {/* VISTAS */}
 
       <div className="sidebar-section">
 
         <div className="section-title">
-          EGMs
+          Vista
         </div>
 
-        <button>🎰 Aristocrat</button>
-        <button>🎰 IGT</button>
-        <button>🎰 Bally</button>
-        <button>🎰 Konami</button>
+        <button className="sidebar-button">
+          <span className="sidebar-icon">▣</span>
+          Layout
+        </button>
+
+        <button className="sidebar-button active">
+          <span className="sidebar-icon">🔥</span>
+          Heat Map
+        </button>
+
+        <button className="sidebar-button">
+          <span className="sidebar-icon">▤</span>
+          Analytics
+        </button>
 
       </div>
+
+
+      {/* CAPAS */}
+
+      <div className="sidebar-section">
+
+        <div className="section-title">
+          Capas
+        </div>
+
+        <label className="layer-item">
+          <input type="checkbox" defaultChecked />
+          <span>Máquinas</span>
+        </label>
+
+        <label className="layer-item">
+          <input type="checkbox" defaultChecked />
+          <span>Mesas</span>
+        </label>
+
+        <label className="layer-item">
+          <input type="checkbox" defaultChecked />
+          <span>Zonas</span>
+        </label>
+
+        <label className="layer-item">
+          <input type="checkbox" defaultChecked />
+          <span>Plano</span>
+        </label>
+
+      </div>
+
+
+      {/* HERRAMIENTAS */}
 
       <div className="sidebar-section">
 
@@ -27,9 +74,20 @@ export default function Sidebar() {
           Herramientas
         </div>
 
-        <button>➕ Agregar Máquina</button>
-        <button>🪑 Agregar Mesa</button>
-        <button>📐 Dibujar Zona</button>
+        <button className="sidebar-button">
+          <span className="sidebar-icon">↖</span>
+          Seleccionar
+        </button>
+
+        <button className="sidebar-button">
+          <span className="sidebar-icon">✥</span>
+          Mover
+        </button>
+
+        <button className="sidebar-button">
+          <span className="sidebar-icon">△</span>
+          Dibujar Zona
+        </button>
 
       </div>
 
