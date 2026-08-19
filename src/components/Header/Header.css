@@ -1,8 +1,8 @@
 .header{
 
-    height:70px;
+    height:72px;
 
-    background:#1E293B;
+    background:#0F172A;
 
     color:white;
 
@@ -12,11 +12,13 @@
 
     align-items:center;
 
-    padding:0 25px;
+    padding:0 20px;
 
-    border-bottom:1px solid #334155;
+    border-bottom:1px solid #1E293B;
 
-    font-family:Segoe UI, sans-serif;
+    font-family:"Segoe UI", sans-serif;
+
+    gap:20px;
 
 }
 
@@ -27,6 +29,8 @@
     align-items:center;
 
     gap:15px;
+
+    min-width:280px;
 
 }
 
@@ -40,22 +44,38 @@
 
     margin:0;
 
-    font-size:28px;
+    font-size:24px;
 
     font-weight:600;
-    color:#38BDF8;
+
+    color:white;
 
 }
 
 .header-left span{
 
-    color:#38BDF8;
+    color:#94A3B8;
 
-    font-size:14px;
+    font-size:13px;
+
+}
+
+/* Solo organiza las tarjetas */
+.header-center{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
 
 }
 
 .header-right{
+
+    min-width:130px;
 
     text-align:right;
 
@@ -63,16 +83,18 @@
 
 .casino-name{
 
-    font-size:18px;
+    color:#38BDF8;
 
     font-weight:600;
+
+    font-size:16px;
 
 }
 
 .user-name{
 
-    color:#CBD5E1;
+    color:#94A3B8;
 
-    font-size:14px;
+    font-size:12px;
 
 }
