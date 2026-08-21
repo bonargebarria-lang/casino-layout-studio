@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Machine } from "../../models/Machine";
 import "./LayoutCanvas.css";
 import EGMCard from "../FloorObjects/EGMCard/EGMCard";
@@ -11,6 +11,12 @@ export default function LayoutCanvas({
     floorplanImage,
 }: LayoutCanvasProps) {
 
+    const canvasRef = useRef<HTMLDivElement>(null);
+    const [floorplanSize, setFloorplanSize] = useState({
+    width: 0,
+    height: 0,
+});
+
     const [selectedMachine, setSelectedMachine] = useState<string | null>(null);
     const [layoutMachines, setLayoutMachines] = useState<Machine[]>(machines);
     const [draggingMachine, setDraggingMachine] = useState<string | null>(null);
@@ -18,12 +24,72 @@ export default function LayoutCanvas({
     x: 0,
     y: 0,
 });
+const [fitScale, setFitScale] = useState(1);
+const [worldOffsetX, setWorldOffsetX] = useState(0);
 
-    return (
+useEffect(() => {
+
+    if (!floorplanImage) return;
+
+    const img = new Image();
+
+    img.onload = () => {
+
+        setFloorplanSize({
+            width: img.naturalWidth,
+            height: img.naturalHeight,
+        });
+
+    };
+
+    img.src = floorplanImage;
+
+}, [floorplanImage]);
+useEffect(() => {
+
+    if (!canvasRef.current) return;
+
+    if (
+        floorplanSize.width === 0 ||
+        floorplanSize.height === 0
+    ) return;
+
+    const rect =
+        canvasRef.current.getBoundingClientRect();
+
+    const padding = 40;
+
+    const availableWidth =
+        rect.width - padding * 2;
+
+    const availableHeight =
+        rect.height - padding * 2;
+
+    const scaleX =
+        availableWidth / floorplanSize.width;
+
+    const scaleY =
+        availableHeight / floorplanSize.height;
+
+    const scale =
+        Math.min(scaleX, scaleY);
+
+    setFitScale(scale);
+    const scaledWidth =
+    floorplanSize.width * scale;
+
+    const offsetX =
+    (rect.width - scaledWidth) / 2;
+
+    setWorldOffsetX(offsetX);
+    
+}, [floorplanSize]);
+
+return (
 
         <div 
+            ref={canvasRef}
             className="layout-canvas"
-            
             onMouseMove={(e) => {
 
                  if (!draggingMachine) return;
@@ -34,7 +100,7 @@ export default function LayoutCanvas({
 
                     const mouseY = e.clientY - rect.top;
 
-            setLayoutMachines((prev) =>
+                    setLayoutMachines((prev) =>
 
                     prev.map((machine) => {
 
@@ -48,9 +114,9 @@ export default function LayoutCanvas({
 
             ...machine,
 
-            x: mouseX - 75,
+            x: (mouseX - worldOffsetX - 75) / fitScale,
 
-            y: mouseY - 40,
+            y: (mouseY - 40) / fitScale,
 
         };
 
@@ -73,18 +139,31 @@ export default function LayoutCanvas({
         >
                 <div className="canvas-grid">
 
-                <div
-                    className="floorplan-layer"
+                <div className="canvas-world"></div>
+                
+                <div className="floorplan-layer"
+
                     style={{
+                    width: floorplanSize.width,
+                    height: floorplanSize.height,
+
+                    left: worldOffsetX,
+
                     backgroundImage: floorplanImage
                     ? `url("${floorplanImage}")`
                     : "none",
-                     }}
+                    transform: `scale(${fitScale})`,
+                }}
                 ></div>
 
                 <div className="zone-layer"></div>
 
-                <div className="machine-layer">
+                <div
+                    className="machine-layer"
+                    style={{
+                    left: worldOffsetX,
+                    }}
+                >
 
                     {layoutMachines.map((machine) => (
 
@@ -92,7 +171,11 @@ export default function LayoutCanvas({
 
                             key={machine.id}
 
-                            machine={machine}
+                            machine={{
+                                ...machine,
+                                x: machine.x * fitScale,
+                                y: machine.y * fitScale,
+                            }}
 
                             selected={selectedMachine === machine.id}
 
@@ -123,9 +206,10 @@ export default function LayoutCanvas({
 
                 <div className="selection-layer"></div>
 
+             </div>
+            
             </div>
 
-        </div>
 
     );
 
