@@ -26,6 +26,7 @@ export default function LayoutCanvas({
 });
 const [fitScale, setFitScale] = useState(1);
 const [worldOffsetX, setWorldOffsetX] = useState(0);
+const [worldOffsetY, setWorldOffsetY] = useState(0);
 
 useEffect(() => {
 
@@ -45,6 +46,8 @@ useEffect(() => {
     img.src = floorplanImage;
 
 }, [floorplanImage]);
+
+
 useEffect(() => {
 
     if (!canvasRef.current) return;
@@ -56,8 +59,15 @@ useEffect(() => {
 
     const rect =
         canvasRef.current.getBoundingClientRect();
+        
+        console.log("AREA:", rect.width, rect.height);
+        console.log(
+        "PLANO:",
+    floorplanSize.width,
+    floorplanSize.height
+);
 
-    const padding = 40;
+    const padding = 0;
 
     const availableWidth =
         rect.width - padding * 2;
@@ -75,13 +85,21 @@ useEffect(() => {
         Math.min(scaleX, scaleY);
 
     setFitScale(scale);
+    
     const scaledWidth =
-    floorplanSize.width * scale;
+        floorplanSize.width * scale;
+
+    const scaledHeight =
+        floorplanSize.height * scale;
 
     const offsetX =
-    (rect.width - scaledWidth) / 2;
+        (rect.width - scaledWidth) / 2;
+
+    const offsetY =
+        (rect.height - scaledHeight) / 2;
 
     setWorldOffsetX(offsetX);
+    setWorldOffsetY(offsetY)
     
 }, [floorplanSize]);
 
@@ -148,6 +166,7 @@ return (
                     height: floorplanSize.height,
 
                     left: worldOffsetX,
+                    top: worldOffsetY,
 
                     backgroundImage: floorplanImage
                     ? `url("${floorplanImage}")`

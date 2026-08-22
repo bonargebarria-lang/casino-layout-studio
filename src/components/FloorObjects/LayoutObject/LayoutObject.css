@@ -1,54 +1,54 @@
-.layout-object{
+.layout-object {
+    position: absolute;
 
-    position:absolute;
+    width: 9px;
+    height: 13px;
 
-    width:150px;
+    background: #3f8f62;
 
-    height:85px;
+    border: 1px solid #1f5f3d;
+    border-radius: 1px;
 
-    background:white;
+    box-shadow: 0 1px 2px rgba(0,0,0,.45);
 
-    border:2px solid #3B82F6;
+    cursor: default;
+    padding: 0;
+    box-sizing: border-box;
 
-    border-radius:10px;
-
-    box-shadow:0 6px 15px rgba(0,0,0,.25);
-
-    cursor:move;
-
-    transition:.15s;
-
-    padding:10px;
-
-    box-sizing:border-box;
-
+    transition: transform .12s;
+    user-select: none;
 }
 
-.layout-object:hover{
+.layout-object::after {
+    content: "";
 
-    transform:scale(1.03);
+    position: absolute;
 
-    border-color:#38BDF8;
+    width: 5px;
+    height: 3px;
 
+    left: 50%;
+    bottom: -3px;
+
+    transform: translateX(-50%);
+
+    background: #94a3b8;
+
+    border: 1px solid #475569;
+    border-radius: 2px;
 }
 
-.object-title{
-
-    font-weight:bold;
-
-    color:#1E293B;
-
+.layout-object:hover {
+    transform: scale(1.25);
+    border-color: #38BDF8;
+    z-index: 100;
 }
 
+.object-title,
 .object-subtitle{
-
-    margin-top:8px;
-
-    color:#64748B;
-
-    font-size:13px;
-
+    display:none;
 }
+
 .layout-object.selected{
 
     border:3px solid #00A3FF;
@@ -57,5 +57,51 @@
         0 0 0 3px rgba(0,163,255,.25),
         0 12px 25px rgba(0,0,0,.35);
 }
+.machine-tooltip {
+    position: absolute;
 
+    left: 14px;
+    top: -8px;
 
+    min-width: 145px;
+
+    padding: 6px 8px;
+
+    background: #0f172a;
+    color: #e2e8f0;
+
+    border: 1px solid #334155;
+    border-radius: 5px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .45);
+
+    font-size: 10px;
+    line-height: 1.35;
+    text-align: left;
+    font-weight: normal;
+
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    z-index: 1000;
+
+    transition: opacity .12s ease;
+    user-select: none;
+}
+
+.layout-object:hover .machine-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+.machine-tooltip.right {
+    left: 14px;
+    right: auto;
+}
+
+.machine-tooltip.left {
+    left: auto;
+    right: 14px;
+}

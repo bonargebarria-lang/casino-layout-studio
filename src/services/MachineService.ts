@@ -23,7 +23,7 @@ export const machines: Machine[] = [
         zone: "Zona A",
         x: 450,
         y: 180,
-        rotation: 0,
+        rotation: 90,
     },
 
     {
@@ -35,7 +35,7 @@ export const machines: Machine[] = [
         zone: "Zona B",
         x: 650,
         y: 180,
-        rotation: 0,
-    }
+        rotation: 180,
+    },
 
 ];

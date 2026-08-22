@@ -24,10 +24,19 @@ export default function EGMCard({
 
             subtitle={machine.manufacturer}
 
+              tooltip={`${machine.id}
+Fabricante: ${machine.manufacturer}
+Juego: ${machine.game}
+Denominación: $${machine.denomination}
+Estado: ${machine.status}
+Zona: ${machine.zone}`}
+
             x={machine.x}
 
             y={machine.y}
 
+            rotation={machine.rotation}
+            
             selected={selected}
 
             onClick={onClick}
